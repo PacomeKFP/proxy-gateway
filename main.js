@@ -25,10 +25,10 @@ const server = http.createServer((req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 server.listen(PORT, () => {
     console.log(`Proxy server started on port ${PORT}`);
-    console.log(`- /http    → http://localhost:3308`);
-    console.log(`- /socket  → http://localhost:8002`);
+    console.log(`- /http    → ${process.env.HTTP_SERVER || "http://localhost:8002"}`);
+    console.log(`- /socket  → ${process.env.SOCKET_SERVER || "http://localhost:3308"}`);
     console.log("Ready to proxy HTTP and WebSocket requests.");
 });
