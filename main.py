@@ -5,7 +5,7 @@ app = FastAPI()
 
 @app.api_route("/{path:path}", methods=["GET", "POST", "PUT", "DELETE"])
 async def proxy(path: str, request: Request):
-    target_url = f"http://localhost:8002/{path}"
+    target_url = f"http://88.198.150.195:8613/{path}"
 
     async with httpx.AsyncClient() as client:
         response = await client.request(
